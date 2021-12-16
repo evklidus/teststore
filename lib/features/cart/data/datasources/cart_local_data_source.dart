@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:teststore/core/helpers/db_names.dart';
+import 'package:teststore/core/helpers/database/db_names.dart';
 import 'package:teststore/features/cart/data/models/cart_model.dart';
 import 'package:sqflite/sqflite.dart';
 

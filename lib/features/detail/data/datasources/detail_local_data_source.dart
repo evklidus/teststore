@@ -1,4 +1,4 @@
-import 'package:teststore/core/helpers/db_names.dart';
+import 'package:teststore/core/helpers/database/db_names.dart';
 import 'package:teststore/features/detail/data/models/phone_model.dart';
 import 'package:sqflite/sqflite.dart';
 

@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:teststore/core/helpers/db_helper.dart';
+import 'package:teststore/core/helpers/database/db_helper.dart';
 import 'package:teststore/features/cart/data/datasources/cart_local_data_source.dart';
 import 'package:teststore/features/cart/data/datasources/cart_remote_data_source.dart';
 import 'package:teststore/features/cart/data/repositories/cart_repository_impl.dart';
