@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1048981815101",
+    "project_id": "mi-f-teststore",
+    "storage_bucket": "mi-f-teststore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048981815101:android:a7cb6f8570b57548e6cf54",
+        "android_client_info": {
+          "package_name": "com.example.teststore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048981815101-l1gcsqg7stpai5tbij2pnpk0daa2eo4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWH_DZbNY6Iqn8pjAXJMYrOkstkUiKB4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048981815101-l1gcsqg7stpai5tbij2pnpk0daa2eo4s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048981815101-a970l4d9asisibdcm5cem9ir9jc60d54.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teststore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

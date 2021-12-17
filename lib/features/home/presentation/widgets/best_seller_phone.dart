@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/components/cache_image.dart';
@@ -36,7 +37,7 @@ class BestSellerPhone extends StatelessWidget {
         right: _isLeftItem(index) ? 7 : 20,
       ),
       child: InkWell(
-        onTap: NavigatorHelper().pushToDetail,
+        onTap: NavigatorHelper.pushToDetail,
         child: ShadowContainer(
           radius: 10,
           child: Stack(
@@ -64,19 +65,27 @@ class BestSellerPhone extends StatelessWidget {
 
   Widget _image(BuildContext context) {
     return Expanded(
-      child: CacheImage(imageUrl: phone.picture, cover:  false,),
+      child: CacheImage(
+        imageUrl: phone.picture,
+        cover: false,
+      ),
     );
   }
 
   Widget _likeButton(bool liked) {
-    return ShadowContainer(
-      child: Icon(
-        liked ? Icons.favorite_rounded : Icons.favorite_outline_rounded,
-        color: AppColors.orangeColor,
-        size: 18,
+    return InkWell(
+      onTap: () async {
+        await FirebaseAnalytics.instance.logEvent(name: 'Liked');
+      },
+      child: ShadowContainer(
+        child: Icon(
+          liked ? Icons.favorite_rounded : Icons.favorite_outline_rounded,
+          color: AppColors.orangeColor,
+          size: 18,
+        ),
+        moreShadow: true,
+        isCircle: true,
       ),
-      moreShadow: true,
-      isCircle: true,
     );
   }
 }

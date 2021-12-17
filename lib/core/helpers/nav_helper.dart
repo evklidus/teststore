@@ -5,16 +5,15 @@ class NavigatorHelper {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
 
-  var firebaseAnalytics = FirebaseAnalytics.instance;
+  // var firebaseAnalytics = FirebaseAnalytics.instance;
       
-   pushToDetail() async {
-    await firebaseAnalytics.logEvent(name: 'Detail');
+   static pushToDetail() async {
+    await FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Detail Screen');
     NavigatorHelper.navigatorKey.currentState!.pushNamed('/detail');
-    // FirebaseAnalytics.instance.logEvent(name: 'Detail');
   }
 
-  static pushToCart() {
+  static pushToCart() async {
+    await FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Cart');
     NavigatorHelper.navigatorKey.currentState!.pushNamed('/cart');
-    FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Cart');
   }
 }

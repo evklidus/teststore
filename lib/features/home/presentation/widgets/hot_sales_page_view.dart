@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:teststore/features/home/domain/entities/home_store_entity.dart';
 
@@ -20,6 +21,9 @@ class HotSalesPageView extends StatelessWidget {
         allowImplicitScrolling: true,
         controller: pageController,
         scrollDirection: Axis.horizontal,
+        onPageChanged: (index) async {
+          await FirebaseAnalytics.instance.logEvent(name: 'Hot Sales Page Changed');
+        },
         children: homeStorePhones
             .map(
               (homeStorePhone) => HotSalesPhone(hotSalesPhone: homeStorePhone),

@@ -8,7 +8,6 @@ import 'package:teststore/features/home/presentation/widgets/hot_sales_page_view
 import 'package:teststore/features/home/presentation/widgets/search_and_qr.dart';
 import 'package:teststore/features/home/presentation/widgets/section_title_and_button.dart';
 
-
 class HomeScreen extends StatelessWidget {
   final List<HomeStorePhoneEntity> homeStorePhones;
   final List<BestSellerPhoneEntity> bestSellerPhones;
@@ -27,19 +26,26 @@ class HomeScreen extends StatelessWidget {
         children: [
           const GeoAndFilter(),
           const SizedBox(height: 20),
-          const SectionTitleAndButton(title: 'Select Category', buttonTitle: 'view all'),
+          const SectionTitleAndButton(
+              title: 'Select Category', buttonTitle: 'view all'),
           const SizedBox(height: 20),
           const HomeCategories(),
           const SizedBox(height: 30),
           SearchAndQr(),
           const SizedBox(height: 30),
-          const SectionTitleAndButton(title: 'Hot sales', buttonTitle: 'see more'),
+          const SectionTitleAndButton(
+              title: 'Hot sales', buttonTitle: 'see more'),
           const SizedBox(height: 20),
-          HotSalesPageView(homeStorePhones: homeStorePhones,),
+          HotSalesPageView(
+            homeStorePhones: homeStorePhones,
+          ),
           const SizedBox(height: 20),
-          const SectionTitleAndButton(title: 'Select Category', buttonTitle: 'view all'),
+          const SectionTitleAndButton(
+              title: 'Select Category', buttonTitle: 'view all'),
           const SizedBox(height: 10),
-          BestSellerPhonesGrid(bestSellerPhones: bestSellerPhones,),
+          BestSellerPhonesGrid(
+            bestSellerPhones: bestSellerPhones,
+          ),
         ],
       ),
     );

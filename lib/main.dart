@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -13,29 +14,24 @@ import 'features/detail/presentation/pages/deteils_bloc_screen.dart';
 import 'features/home/presentation/bloc/home_bloc.dart';
 import 'features/home/presentation/pages/home_bloc_screen.dart';
 import 'locator_service.dart';
-import 'firebase_options.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'firebase_options.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // if (message.data['type'] == 'detail') {
   //   NavigatorKeyHelper.navigatorKey.currentState!.pushNamed('/detail');
   // }
-  NavigatorHelper().pushToDetail();
+  await FirebaseAnalytics.instance.logEvent(name: 'Notification open');
+  NavigatorHelper.pushToDetail();
 }
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
   await di.init();
-  await FirebaseAnalytics.instance
-  .logEvent(
-    name: 'view_product',
-    parameters: {
-      'product_id': 1234,
-    }
-  );
+
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
 }
@@ -48,7 +44,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  
   Future<void> setupInteractedMessage() async {
     // FirebaseMessaging messaging = FirebaseMessaging.instance;
 
@@ -71,8 +66,9 @@ class _MyAppState extends State<MyApp> {
     FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
   }
 
-  void _handleMessage(RemoteMessage message) {
-      NavigatorHelper().pushToDetail();
+  void _handleMessage(RemoteMessage message) async {
+    await FirebaseAnalytics.instance.logEvent(name: 'Notification open');
+    NavigatorHelper.pushToDetail();
   }
 
   @override
@@ -128,14 +124,8 @@ class _MyAppState extends State<MyApp> {
         ),
         routes: {
           // '/': (context) => const FirstScreen(),
-          '/detail': (context) {
-            FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Detail');
-            return const DetailsBLoCScreen();
-          },
-          '/cart': (context) {
-            FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Cart');
-            return const CartBLoCScreen();
-          },
+          '/detail': (context) => const DetailsBLoCScreen(),
+          '/cart': (context) => const CartBLoCScreen(),
         },
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
@@ -150,19 +151,24 @@ class PhoneInfo extends StatelessWidget {
                       ),
                     ],
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      height: MediaQuery.of(context).size.width / 12,
-                      width: MediaQuery.of(context).size.width / 10,
-                      color: AppColors.blueColor,
-                      child: Icon(
-                        phone.isFavorites
-                            ? Icons.favorite_rounded
-                            : Icons.favorite_outline_rounded,
-                        color: phone.isFavorites
-                            ? AppColors.orangeColor
-                            : Colors.white,
+                  InkWell(
+                    onTap: () async {
+                      await FirebaseAnalytics.instance.logEvent(name: 'Liked');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        height: MediaQuery.of(context).size.width / 12,
+                        width: MediaQuery.of(context).size.width / 10,
+                        color: AppColors.blueColor,
+                        child: Icon(
+                          phone.isFavorites
+                              ? Icons.favorite_rounded
+                              : Icons.favorite_outline_rounded,
+                          color: phone.isFavorites
+                              ? AppColors.orangeColor
+                              : Colors.white,
+                        ),
                       ),
                     ),
                   )
