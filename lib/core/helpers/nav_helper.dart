@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 class NavigatorHelper {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
-  static pushToDetail() {
+
+  var firebaseAnalytics = FirebaseAnalytics.instance;
+      
+   pushToDetail() async {
+    await firebaseAnalytics.logEvent(name: 'Detail');
     NavigatorHelper.navigatorKey.currentState!.pushNamed('/detail');
-    FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Detail');
+    // FirebaseAnalytics.instance.logEvent(name: 'Detail');
   }
 
   static pushToCart() {

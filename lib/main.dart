@@ -20,7 +20,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // if (message.data['type'] == 'detail') {
   //   NavigatorKeyHelper.navigatorKey.currentState!.pushNamed('/detail');
   // }
-  NavigatorHelper.pushToDetail();
+  NavigatorHelper().pushToDetail();
 }
 
 Future<void> main() async {
@@ -29,6 +29,13 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await di.init();
+  await FirebaseAnalytics.instance
+  .logEvent(
+    name: 'view_product',
+    parameters: {
+      'product_id': 1234,
+    }
+  );
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
 }
@@ -65,7 +72,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _handleMessage(RemoteMessage message) {
-      NavigatorHelper.pushToDetail();
+      NavigatorHelper().pushToDetail();
   }
 
   @override

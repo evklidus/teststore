@@ -36,9 +36,7 @@ class BestSellerPhone extends StatelessWidget {
         right: _isLeftItem(index) ? 7 : 20,
       ),
       child: InkWell(
-        onTap: () {
-          NavigatorHelper.pushToDetail;
-        },
+        onTap: NavigatorHelper().pushToDetail,
         child: ShadowContainer(
           radius: 10,
           child: Stack(
