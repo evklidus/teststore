@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/common/refactor_price.dart';
 import 'package:teststore/components/shadow.dart';
-import 'package:teststore/features/cart/presentation/pages/cart_bloc_screen.dart';
+import 'package:teststore/core/helpers/nav_helper.dart';
 import 'package:teststore/features/detail/domain/entities/phone_entity.dart';
 
 import 'memory_and_color.dart';
@@ -91,9 +91,7 @@ class PhoneInfo extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.only(left: 5, top: 25, right: 5),
         child: InkWell(
-          onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const CartBLoCScreen()),
-          ),
+          onTap: NavigatorHelper.pushToCart,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Container(

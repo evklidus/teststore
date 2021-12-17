@@ -3,7 +3,7 @@ import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/components/cache_image.dart';
 import 'package:teststore/common/refactor_price.dart';
 import 'package:teststore/components/shadow.dart';
-import 'package:teststore/features/detail/presentation/pages/deteils_bloc_screen.dart';
+import 'package:teststore/core/helpers/nav_helper.dart';
 import 'package:teststore/features/home/domain/entities/best_seller_entity.dart';
 
 class BestSellerPhone extends StatelessWidget {
@@ -37,9 +37,7 @@ class BestSellerPhone extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const DetailsBLoCScreen()),
-          );
+          NavigatorHelper.pushToDetail;
         },
         child: ShadowContainer(
           radius: 10,

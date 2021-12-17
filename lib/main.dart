@@ -20,7 +20,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // if (message.data['type'] == 'detail') {
   //   NavigatorKeyHelper.navigatorKey.currentState!.pushNamed('/detail');
   // }
-  NavigatorKeyHelper.navigatorKey.currentState!.pushNamed('/detail');
+  NavigatorHelper.pushToDetail();
 }
 
 Future<void> main() async {
@@ -41,7 +41,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  
   Future<void> setupInteractedMessage() async {
     // FirebaseMessaging messaging = FirebaseMessaging.instance;
 
@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _handleMessage(RemoteMessage message) {
-      NavigatorKeyHelper.navigatorKey.currentState!.pushNamed('/detail');
+      NavigatorHelper.pushToDetail();
   }
 
   @override
@@ -91,7 +91,7 @@ class _MyAppState extends State<MyApp> {
       });
     }
     if (index == 1) {
-      NavigatorKeyHelper.navigatorKey.currentState!.pushNamed('/cart');
+      NavigatorHelper.pushToCart();
     }
   }
 
@@ -110,7 +110,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ],
       child: MaterialApp(
-        navigatorKey: NavigatorKeyHelper.navigatorKey,
+        navigatorKey: NavigatorHelper.navigatorKey,
         theme: ThemeData(fontFamily: 'MarkPro'),
         home: Scaffold(
           body: screens[selectedIndex],
@@ -121,8 +121,14 @@ class _MyAppState extends State<MyApp> {
         ),
         routes: {
           // '/': (context) => const FirstScreen(),
-          '/detail': (context) => const DetailsBLoCScreen(),
-          '/cart': (context) => const CartBLoCScreen(),
+          '/detail': (context) {
+            FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Detail');
+            return const DetailsBLoCScreen();
+          },
+          '/cart': (context) {
+            FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Cart');
+            return const CartBLoCScreen();
+          },
         },
       ),
     );

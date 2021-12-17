@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teststore/common/app_colors.dart';
+import 'package:teststore/core/helpers/nav_helper.dart';
 
 import 'top_button.dart';
 
@@ -29,13 +30,9 @@ class TopBar extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed(
-                '/cart',
-              );
-            },
-            child: const TopButton(
+          const InkWell(
+            onTap: NavigatorHelper.pushToCart,
+            child: TopButton(
                 icon: 'lib/assets/icons/MiniBag.svg',
                 color: AppColors.orangeColor),
           ),
