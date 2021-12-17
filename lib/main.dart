@@ -14,6 +14,7 @@ import 'features/home/presentation/bloc/home_bloc.dart';
 import 'features/home/presentation/pages/home_bloc_screen.dart';
 import 'locator_service.dart';
 import 'firebase_options.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // if (message.data['type'] == 'detail') {
@@ -40,6 +41,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   Future<void> setupInteractedMessage() async {
     // FirebaseMessaging messaging = FirebaseMessaging.instance;
 

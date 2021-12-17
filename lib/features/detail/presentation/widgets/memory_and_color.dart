@@ -3,11 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:teststore/common/app_colors.dart';
 
 class MemoryAndColor extends StatefulWidget {
-  MemoryAndColor({required this.colors, required this.capacity, Key? key})
+  const MemoryAndColor({required this.colors, required this.capacity, Key? key})
       : super(key: key);
 
-  List<String> colors;
-  List<String> capacity;
+  final List<String> colors, capacity;
 
   @override
   State<MemoryAndColor> createState() => _MemoryAndColorState();

@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/features/cart/domain/entities/basket_entity.dart';
 import 'package:teststore/features/cart/presentation/bloc/cart_bloc.dart';
-import 'package:teststore/features/cart/presentation/pages/cart_bloc_screen.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   final int index;

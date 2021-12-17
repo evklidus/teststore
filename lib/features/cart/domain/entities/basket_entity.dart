@@ -1,9 +1,11 @@
 import 'package:equatable/equatable%202.dart';
+import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class BasketEntity extends Equatable {
-  String title;
-  String image;
-  int price;
+  final String title;
+  final String image;
+  final int price;
   int count;
 
   BasketEntity({
@@ -14,5 +16,5 @@ class BasketEntity extends Equatable {
   });
 
   @override
-  List<Object?> get props => [title, image, price, count];
+  List<Object> get props => [title, image, price, count];
 }

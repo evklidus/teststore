@@ -6,9 +6,9 @@ import 'package:teststore/components/cache_image.dart';
 import 'package:teststore/features/cart/domain/entities/basket_entity.dart';
 
 class BasketItem extends StatelessWidget {
-  BasketItem({required this.basketItem, Key? key}) : super(key: key);
+  const BasketItem({required this.basketItem, Key? key}) : super(key: key);
 
-  BasketEntity basketItem;
+  final BasketEntity basketItem;
 
   @override
   Widget build(BuildContext context) {

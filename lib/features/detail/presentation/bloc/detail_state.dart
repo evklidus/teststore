@@ -20,10 +20,10 @@ class DetailLoadedState extends DetailState {
 }
 
 class DetailErrorState extends DetailState {
-  String message;
-  String image;
+  final String message;
+  final String image;
   
-  DetailErrorState({
+  const DetailErrorState({
     required this.message,
     required this.image,
   });

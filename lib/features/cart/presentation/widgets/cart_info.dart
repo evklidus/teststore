@@ -7,9 +7,9 @@ import 'package:teststore/features/cart/domain/entities/cart_entity.dart';
 import 'basket_item.dart';
 
 class CartInfo extends StatelessWidget {
-  CartInfo({required this.cart, Key? key}) : super(key: key);
+  const CartInfo({required this.cart, Key? key}) : super(key: key);
 
-  CartEntity cart;
+  final CartEntity cart;
 
   @override
   Widget build(BuildContext context) {

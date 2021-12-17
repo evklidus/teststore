@@ -1,10 +1,11 @@
 import 'package:teststore/features/cart/domain/entities/basket_entity.dart';
 
+// ignore: must_be_immutable
 class BasketModel extends BasketEntity {
   BasketModel({
-    required title,
-    required image,
-    required price,
+    required final title,
+    required final image,
+    required final price,
     required count,
   }) : super(
           title: title,
