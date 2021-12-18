@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:teststore/components/map_screen.dart';
 import 'package:teststore/components/tab_bar.dart';
 import 'package:teststore/core/helpers/nav_helper.dart';
 import 'package:teststore/features/cart/presentation/bloc/cart_bloc.dart';
@@ -84,7 +85,8 @@ class _MyAppState extends State<MyApp> {
     const HomeBLoCScreen(),
     const Center(child: Text('page under construction')),
     const Center(child: Text('page under construction')),
-    const Center(child: Text('page under construction')),
+    MapScreen(),
+    // const Center(child: Text('page under construction')),
   ];
 
   changeScreen(int index) {
