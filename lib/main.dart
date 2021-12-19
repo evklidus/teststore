@@ -85,7 +85,7 @@ class _MyAppState extends State<MyApp> {
     const HomeBLoCScreen(),
     const Center(child: Text('page under construction')),
     const Center(child: Text('page under construction')),
-    MapScreen(),
+    const MapScreen(),
     // const Center(child: Text('page under construction')),
   ];
 
