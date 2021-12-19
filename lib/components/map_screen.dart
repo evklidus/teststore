@@ -81,10 +81,11 @@ class _MapScreenState extends State<MapScreen> {
   Widget _permissionWidget() {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Please allow the use of geo data for maps'),
+          const Text('Please allow the use of geo data for maps'),
           ElevatedButton(
-            child: Text('Allow'),
+            child: const Text('Allow'),
             onPressed: () {
               _getPermission();
             },
