@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:teststore/common/app_colors.dart';
+import 'package:teststore/common/app_icons.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CartTopButtons extends StatelessWidget {
   const CartTopButtons({Key? key}) : super(key: key);
@@ -34,23 +36,23 @@ class CartTopButtons extends StatelessWidget {
             },
             child: InkWell(
               onTap: Navigator.of(context).pop,
-              child: _topButton('lib/assets/icons/LineLeft.svg',
+              child: _topButton(AppIcons.lineLeft,
                   AppColors.blueColor, context),
             ),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                'Add address',
-                style: TextStyle(
+              Text(
+                AppLocalizations.of(context)?.addAddress ?? '',
+                style: const TextStyle(
                   color: AppColors.blueColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               const SizedBox(width: 7),
-              _topButton('lib/assets/icons/GeoTag.svg', AppColors.orangeColor,
+              _topButton(AppIcons.geoTag, AppColors.orangeColor,
                   context),
             ],
           ),

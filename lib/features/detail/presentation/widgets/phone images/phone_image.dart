@@ -3,7 +3,7 @@ import 'package:teststore/components/cache_image.dart';
 import 'package:teststore/components/shadow.dart';
 
 class PhoneImage extends StatelessWidget {
-  const PhoneImage({required this.imageUrl, Key? key }) : super(key: key);
+  const PhoneImage({required this.imageUrl, Key? key}) : super(key: key);
 
   final String imageUrl;
 

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teststore/components/error_screen.dart';
 import 'package:teststore/components/load_indicator.dart';
 import 'package:teststore/features/cart/presentation/bloc/cart_bloc.dart';
-import 'package:teststore/features/cart/presentation/widgets/cart_screen.dart';
+import 'package:teststore/features/cart/presentation/pages/cart_screen.dart';
 
 class CartBLoCScreen extends StatelessWidget {
   const CartBLoCScreen({Key? key}) : super(key: key);

@@ -21,7 +21,7 @@ class SearchInput extends StatelessWidget {
       child: TextField(
         controller: textController,
         onChanged: (value) {
-          //Do something wi
+          //Do something
         },
         decoration: InputDecoration(
           prefixIcon: const Padding(

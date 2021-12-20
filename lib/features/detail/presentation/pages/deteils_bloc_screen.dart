@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teststore/components/error_screen.dart';
 import 'package:teststore/components/load_indicator.dart';
 import 'package:teststore/features/detail/presentation/bloc/detail_bloc.dart';
-import 'package:teststore/features/detail/presentation/widgets/detail_screen.dart';
+import 'package:teststore/features/detail/presentation/pages/detail_screen.dart';
 
 class DetailsBLoCScreen extends StatelessWidget {
   const DetailsBLoCScreen({Key? key}) : super(key: key);

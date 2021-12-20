@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:teststore/features/detail/domain/entities/phone_entity.dart';
-import 'package:teststore/features/detail/presentation/widgets/phone_images.dart';
-import 'package:teststore/features/detail/presentation/widgets/phone_info_widget/phone_info.dart';
-import 'package:teststore/features/detail/presentation/widgets/top_bar.dart';
+import 'package:teststore/features/detail/presentation/widgets/phone%20images/phone_images.dart';
+import 'package:teststore/features/detail/presentation/widgets/top%20bar/top_bar.dart';
+
+import '../widgets/phone_info_widget/main_widget/phone_info.dart';
 
 
 class DetailsScreen extends StatelessWidget {

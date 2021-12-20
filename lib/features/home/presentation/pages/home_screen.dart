@@ -7,6 +7,7 @@ import 'package:teststore/features/home/presentation/widgets/geo_and_fliter.dart
 import 'package:teststore/features/home/presentation/widgets/hot_sales_page_view.dart';
 import 'package:teststore/features/home/presentation/widgets/search_and_qr.dart';
 import 'package:teststore/features/home/presentation/widgets/section_title_and_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<HomeStorePhoneEntity> homeStorePhones;
@@ -26,22 +27,22 @@ class HomeScreen extends StatelessWidget {
         children: [
           const GeoAndFilter(),
           const SizedBox(height: 20),
-          const SectionTitleAndButton(
-              title: 'Select Category', buttonTitle: 'view all'),
+          SectionTitleAndButton(
+              title: AppLocalizations.of(context)?.selectCategory ?? '', buttonTitle: AppLocalizations.of(context)?.viewAll ?? ''),
           const SizedBox(height: 20),
           const HomeCategories(),
           const SizedBox(height: 30),
           SearchAndQr(),
           const SizedBox(height: 30),
-          const SectionTitleAndButton(
-              title: 'Hot sales', buttonTitle: 'see more'),
+          SectionTitleAndButton(
+              title: AppLocalizations.of(context)?.hotSales ?? '', buttonTitle: AppLocalizations.of(context)?.seeMore ?? ''),
           const SizedBox(height: 20),
           HotSalesPageView(
             homeStorePhones: homeStorePhones,
           ),
           const SizedBox(height: 20),
-          const SectionTitleAndButton(
-              title: 'Select Category', buttonTitle: 'view all'),
+          SectionTitleAndButton(
+              title: AppLocalizations.of(context)?.bestSeller ?? '', buttonTitle: AppLocalizations.of(context)?.seeMore ?? ''),
           const SizedBox(height: 10),
           BestSellerPhonesGrid(
             bestSellerPhones: bestSellerPhones,

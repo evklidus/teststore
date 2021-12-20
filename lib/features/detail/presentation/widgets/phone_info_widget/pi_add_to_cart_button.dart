@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/common/refactor_price.dart';
 import 'package:teststore/core/helpers/nav_helper.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PhoneInfoAddToCart extends StatelessWidget {
   const PhoneInfoAddToCart({required this.price, Key? key }) : super(key: key);
@@ -23,12 +24,12 @@ class PhoneInfoAddToCart extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Add to Cart',
+                  Text(
+                    AppLocalizations.of(context)?.addToCart ?? '',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: (AppLocalizations.of(context)?.language ?? '') == 'English' ?  18 : 16,
                     ),
                   ),
                   Text(

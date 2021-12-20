@@ -16,4 +16,9 @@ class NavigatorHelper {
     await FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Cart');
     NavigatorHelper.navigatorKey.currentState!.pushNamed('/cart');
   }
+
+  static pushToNamedRoute(String routeName) async {
+    // await FirebaseAnalytics.instance.setCurrentScreen(screenName: 'Cart');
+    NavigatorHelper.navigatorKey.currentState!.pushNamed(routeName);
+  }
 }

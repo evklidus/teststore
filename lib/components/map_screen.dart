@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -16,7 +16,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  bool? permisson = null;
+  bool? permisson;
 
   // Future<void> _checkPermission() async { // for check gps
   //   final serviceStatus = await Permission.locationWhenInUse.serviceStatus;

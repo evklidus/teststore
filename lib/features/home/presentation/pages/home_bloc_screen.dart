@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teststore/components/error_screen.dart';
 import 'package:teststore/components/load_indicator.dart';
-import 'package:teststore/features/home/presentation/widgets/home_screen.dart';
+import 'package:teststore/features/home/presentation/pages/home_screen.dart';
 
 import '../bloc/home_bloc.dart';
+import 'home_screen.dart';
 
 class HomeBLoCScreen extends StatelessWidget {
   const HomeBLoCScreen({Key? key}) : super(key: key);

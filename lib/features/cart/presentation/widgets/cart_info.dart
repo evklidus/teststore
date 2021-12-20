@@ -3,8 +3,8 @@ import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/common/refactor_price.dart';
 import 'package:teststore/components/shadow.dart';
 import 'package:teststore/features/cart/domain/entities/cart_entity.dart';
-
 import 'basket_item.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CartInfo extends StatelessWidget {
   const CartInfo({required this.cart, Key? key}) : super(key: key);
@@ -68,14 +68,14 @@ class CartInfo extends StatelessWidget {
                 height: 15,
               ),
               _bottomText(
-                'Total',
+                AppLocalizations.of(context)?.total ?? '',
                 '${refactorPrice(price: cart.total, withComma: true, withZeros: false)} us',
                 false,
               ),
               const SizedBox(
                 height: 10,
               ),
-              _bottomText('Delivery', cart.delivery, true),
+              _bottomText(AppLocalizations.of(context)?.delivery ?? '', cart.delivery, true),
               const SizedBox(
                 height: 25,
               ),
@@ -94,9 +94,9 @@ class CartInfo extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 1.2,
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   alignment: Alignment.center,
-                  child: const Text(
-                    'Checkout',
-                    style: TextStyle(
+                  child: Text(
+                    AppLocalizations.of(context)?.checkout ?? '',
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,

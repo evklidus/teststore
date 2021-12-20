@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -15,8 +17,8 @@ import 'features/detail/presentation/pages/deteils_bloc_screen.dart';
 import 'features/home/presentation/bloc/home_bloc.dart';
 import 'features/home/presentation/pages/home_bloc_screen.dart';
 import 'locator_service.dart';
-// import 'firebase_options.dart';
-// import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // if (message.data['type'] == 'detail') {
@@ -28,35 +30,42 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      // options: DefaultFirebaseOptions.currentPlatform,
-      );
+  await Firebase.initializeApp();
   await di.init();
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  runApp(const MyApp());
+  final PendingDynamicLinkData? initialLink =
+      await FirebaseDynamicLinks.instance.getInitialLink();
+
+  runApp(MyApp(
+    initialLink: initialLink,
+  ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({required this.initialLink, Key? key}) : super(key: key);
+
+  final PendingDynamicLinkData? initialLink;
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  Future<void> setupInteractedMessage() async {
-    // FirebaseMessaging messaging = FirebaseMessaging.instance;
+  PendingDynamicLinkData? get initialLink {
+    if (initialLink != null) {
+      final Uri deepLink = initialLink!.link;
+      print(deepLink.path);
+      if (deepLink.path == '/explorer') {
+        changeScreen(0);
+      } else {
+        NavigatorHelper.pushToNamedRoute(deepLink.path);
+      }
+    }
+    return null;
+  }
 
-    // NotificationSettings settings = await messaging.requestPermission(
-    //   alert: true,
-    //   announcement: false,
-    //   badge: true,
-    //   carPlay: false,
-    //   criticalAlert: false,
-    //   provisional: false,
-    //   sound: true,
-    // );
+  Future<void> setupInteractedMessage() async {
     RemoteMessage? initialMessage =
         await FirebaseMessaging.instance.getInitialMessage();
 
@@ -77,6 +86,11 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     setupInteractedMessage();
+
+    FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
+      print(dynamicLinkData.link.path);
+      NavigatorHelper.pushToNamedRoute(dynamicLinkData.link.path);
+    });
   }
 
   int selectedIndex = 0;
@@ -116,7 +130,9 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         navigatorKey: NavigatorHelper.navigatorKey,
-        theme: ThemeData(fontFamily: 'MarkPro'),
+        theme: (AppLocalizations.of(context)?.language ?? '') == 'English' ? ThemeData(fontFamily: 'MarkPro') : null,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: screens[selectedIndex],
           bottomNavigationBar: CustomBottomNavBar(

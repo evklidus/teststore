@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:teststore/common/app_colors.dart';
+import 'package:teststore/common/app_icons.dart';
 import 'package:teststore/components/shadow.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Category {
   String icon;
@@ -18,18 +20,19 @@ class HomeCategories extends StatefulWidget {
 }
 
 class _HomeCategoriesState extends State<HomeCategories> {
-  List<Category> categories = [
-    Category(icon: 'lib/assets/icons/Phone.svg', title: 'Phones'),
-    Category(icon: 'lib/assets/icons/Computer.svg', title: 'Computer'),
-    Category(icon: 'lib/assets/icons/Heart.svg', title: 'Health'),
-    Category(icon: 'lib/assets/icons/Books.svg', title: 'Books'),
-    Category(icon: 'lib/assets/icons/Books.svg', title: 'Ipads'),
-  ];
+  
 
   int selectedCategory = 0;
 
   @override
   Widget build(BuildContext context) {
+    List<Category> categories = [
+    Category(icon: AppIcons.phones, title: AppLocalizations.of(context)?.phones ?? ''),
+    Category(icon: AppIcons.computer, title: AppLocalizations.of(context)?.computer ?? ''),
+    Category(icon: AppIcons.heart, title: AppLocalizations.of(context)?.health ?? ''),
+    Category(icon: AppIcons.books, title: AppLocalizations.of(context)?.books ?? ''),
+    Category(icon: AppIcons.books, title: AppLocalizations.of(context)?.books ?? ''),
+  ];
     Widget _categoryItem(int index, String icon, String title) {
       return Padding(
         padding: const EdgeInsets.only(right: 22),

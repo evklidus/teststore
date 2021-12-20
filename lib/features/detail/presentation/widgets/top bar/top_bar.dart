@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:teststore/common/app_colors.dart';
+import 'package:teststore/common/app_icons.dart';
 import 'package:teststore/core/helpers/nav_helper.dart';
-
 import 'top_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
@@ -18,22 +19,22 @@ class TopBar extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop();
             },
-            child: const TopButton(
-                icon: 'lib/assets/icons/LineLeft.svg',
+            child: TopButton(
+                icon: AppIcons.lineLeft,
                 color: AppColors.blueColor),
           ),
-          const Text(
-            'Product Details',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)?.productDetails ?? '',
+            style: const TextStyle(
               color: AppColors.blueColor,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
           ),
-          const InkWell(
+          InkWell(
             onTap: NavigatorHelper.pushToCart,
             child: TopButton(
-                icon: 'lib/assets/icons/MiniBag.svg',
+                icon: AppIcons.miniBag,
                 color: AppColors.orangeColor),
           ),
         ],

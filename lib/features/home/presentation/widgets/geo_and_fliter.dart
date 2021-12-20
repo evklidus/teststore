@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:teststore/common/app_colors.dart';
+import 'package:teststore/common/app_icons.dart';
 import 'package:teststore/components/shadow.dart';
-
 import 'custom_dropdown_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GeoAndFilter extends StatelessWidget {
   const GeoAndFilter({ Key? key }) : super(key: key);
@@ -19,7 +20,7 @@ class GeoAndFilter extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                'lib/assets/icons/GeoTag.svg',
+                AppIcons.geoTag,
               ),
               const SizedBox(
                 width: 10,
@@ -36,7 +37,7 @@ class GeoAndFilter extends StatelessWidget {
                 width: 10,
               ),
               SvgPicture.asset(
-                'lib/assets/icons/LineDown.svg',
+                AppIcons.lineDown,
               ),
             ],
           ),
@@ -47,7 +48,7 @@ class GeoAndFilter extends StatelessWidget {
                 _showFilters(context);
               },
               child: SvgPicture.asset(
-                'lib/assets/icons/Filter.svg',
+                AppIcons.filter,
               ),
             ),
           ),
@@ -77,16 +78,16 @@ class GeoAndFilter extends StatelessWidget {
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             color: AppColors.blueColor,
-                            child: SvgPicture.asset('lib/assets/icons/X.svg'),
+                            child: SvgPicture.asset(AppIcons.x),
                           ),
                         ),
                       ),
-                      const Text(
-                        'Filter options',
+                      Text(
+                        AppLocalizations.of(context)?.filterOptions ?? '',
                         style: TextStyle(
                           color: AppColors.blueColor,
                           fontWeight: FontWeight.w500,
-                          fontSize: 18,
+                          fontSize: (AppLocalizations.of(context)?.language ?? '') == 'English' ? 18 : 16,
                         ),
                       ),
                       InkWell(
@@ -97,12 +98,12 @@ class GeoAndFilter extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 15),
                             color: AppColors.orangeColor,
-                            child: const Text(
-                              'Done',
+                            child: Text(
+                              AppLocalizations.of(context)?.done ?? '',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 18,
+                                fontSize: (AppLocalizations.of(context)?.language ?? '') == 'English' ? 18 : 16,
                               ),
                             ),
                           ),
@@ -111,21 +112,21 @@ class GeoAndFilter extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 40,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Column(
-                      children: const [
-                        CustomDropdownButton(title: 'Brand', labelText: 'Samsung',),
-                        SizedBox(
+                      children: [
+                        CustomDropdownButton(title: AppLocalizations.of(context)?.brand ?? '', labelText: 'Samsung',),
+                        const SizedBox(
                           height: 12,
                         ),
-                        CustomDropdownButton(title: 'Price', labelText: '\$300 - \$500',),
-                        SizedBox(
+                        CustomDropdownButton(title: AppLocalizations.of(context)?.price ?? '', labelText: '\$300 - \$500',),
+                        const SizedBox(
                           height: 12,
                         ),
-                        CustomDropdownButton(title: 'Size', labelText: '4.5 to 5.5 inches',),
+                        CustomDropdownButton(title: AppLocalizations.of(context)?.size ?? '', labelText: '4.5 to 5.5 inches',),
                       ],
                     ),
                   )

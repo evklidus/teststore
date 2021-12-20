@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/components/cache_image.dart';
 import 'package:teststore/features/home/domain/entities/home_store_entity.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HotSalesPhone extends StatelessWidget {
   const HotSalesPhone({
@@ -81,9 +82,9 @@ class HotSalesPhone extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                   color: Colors.white,
-                  child: const Text(
-                    'Buy now!',
-                    style: TextStyle(
+                  child: Text(
+                    AppLocalizations.of(context)?.buyNow ?? '',
+                    style: const TextStyle(
                       color: AppColors.blueColor,
                       fontSize: 11,
                       fontWeight: FontWeight.bold,

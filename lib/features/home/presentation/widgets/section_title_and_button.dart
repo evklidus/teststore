@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:teststore/common/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SectionTitleAndButton extends StatelessWidget {
-  const SectionTitleAndButton({required this.title, required this.buttonTitle, Key? key }) : super(key: key);
+  const SectionTitleAndButton(
+      {required this.title, required this.buttonTitle, Key? key})
+      : super(key: key);
 
   final String title, buttonTitle;
 
@@ -15,15 +18,24 @@ class SectionTitleAndButton extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.bold,
               color: AppColors.blueColor,
-              fontSize: 25,
+              fontSize:
+                  (AppLocalizations.of(context)?.language ?? '') == 'English'
+                      ? 25
+                      : 20,
             ),
           ),
           Text(
             buttonTitle,
-            style: const TextStyle(color: AppColors.orangeColor, fontSize: 15),
+            style: TextStyle(
+              color: AppColors.orangeColor,
+              fontSize:
+                  (AppLocalizations.of(context)?.language ?? '') == 'English'
+                      ? 15
+                      : 12,
+            ),
           ),
         ],
       ),
