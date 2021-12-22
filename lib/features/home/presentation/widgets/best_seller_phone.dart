@@ -4,7 +4,7 @@ import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/components/cache_image.dart';
 import 'package:teststore/common/refactor_price.dart';
 import 'package:teststore/components/shadow.dart';
-import 'package:teststore/core/helpers/nav_helper.dart';
+import 'package:teststore/core/helpers/navigation/nav_helper.dart';
 import 'package:teststore/features/home/domain/entities/best_seller_entity.dart';
 
 class BestSellerPhone extends StatelessWidget {

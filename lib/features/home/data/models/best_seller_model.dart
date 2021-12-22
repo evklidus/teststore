@@ -18,7 +18,7 @@ class BestSellerPhoneModel extends BestSellerPhoneEntity {
           picture: picture,
         );
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'isFavorites': isFavorites,
@@ -39,7 +39,7 @@ class BestSellerPhoneModel extends BestSellerPhoneEntity {
     };
   }
 
-  factory BestSellerPhoneModel.fromMap(Map<String, dynamic> map) {
+  factory BestSellerPhoneModel.fromJson(Map<String, dynamic> map) {
     return BestSellerPhoneModel(
       id: map['id'],
       isFavorites: map['is_favorites'] ?? false,

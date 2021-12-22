@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:teststore/core/helpers/database/db_helper.dart';
+import 'package:teststore/core/helpers/network/rest_api_client.dart';
 import 'package:teststore/features/cart/data/datasources/cart_local_data_source.dart';
 import 'package:teststore/features/cart/data/datasources/cart_remote_data_source.dart';
 import 'package:teststore/features/cart/data/repositories/cart_repository_impl.dart';
@@ -83,8 +85,10 @@ Future<void> init() async {
   );
 
   // External
+  final dio = Dio();
+  final client = RestClient(dio);
   Database database = await DBHelper().db;
   sl.registerLazySingleton(() => database);
-  sl.registerLazySingleton(() => http.Client());
+  sl.registerLazySingleton(() => client);
   sl.registerLazySingleton(() => InternetConnectionChecker());
 }

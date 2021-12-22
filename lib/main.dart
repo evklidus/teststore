@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teststore/components/map_screen.dart';
 import 'package:teststore/components/tab_bar.dart';
-import 'package:teststore/core/helpers/nav_helper.dart';
+import 'package:teststore/core/helpers/navigation/nav_helper.dart';
 import 'package:teststore/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:teststore/features/detail/presentation/bloc/detail_bloc.dart';
 import 'package:teststore/locator_service.dart' as di;

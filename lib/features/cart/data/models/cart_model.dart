@@ -14,10 +14,10 @@ class CartModel extends CartEntity<BasketModel> {
           delivery: delivery,
         );
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'basket': basket.map((x) => x.toMap()).toList(),
+      'basket': basket.map((x) => x.toJson()).toList(),
       'total': total,
       'delivery': delivery,
     };
@@ -32,11 +32,11 @@ class CartModel extends CartEntity<BasketModel> {
     };
   }
 
-  factory CartModel.fromMap(Map<String, dynamic> map) {
+  factory CartModel.fromJson(Map<String, dynamic> map) {
     return CartModel(
       id: map['_id'],
       basket: List<BasketModel>.from(
-          map['basket'].map((x) => BasketModel.fromMap(x))),
+          map['basket'].map((x) => BasketModel.fromJson(x))),
       total: map['total'],
       delivery: map['Delivery'],
     );

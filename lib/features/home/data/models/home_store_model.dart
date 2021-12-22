@@ -20,7 +20,7 @@ class HomeStorePhoneModel extends HomeStorePhoneEntity {
           isBuy: isBuy,
         );
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'isNew': isNew,
@@ -43,7 +43,7 @@ class HomeStorePhoneModel extends HomeStorePhoneEntity {
     };
   }
 
-  factory HomeStorePhoneModel.fromMap(Map<String, dynamic> map) {
+  factory HomeStorePhoneModel.fromJson(Map<String, dynamic> map) {
     return HomeStorePhoneModel(
       id: map['id'],
       isNew: map['is_new'] ?? false,

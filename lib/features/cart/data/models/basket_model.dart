@@ -14,7 +14,7 @@ class BasketModel extends BasketEntity {
           count: count
         );
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'title': title,
       'image': image,
@@ -32,7 +32,7 @@ class BasketModel extends BasketEntity {
     };
   }
 
-  factory BasketModel.fromMap(Map<String, dynamic> map) {
+  factory BasketModel.fromJson(Map<String, dynamic> map) {
     return BasketModel(
       title: map['title'],
       image: map['image'],

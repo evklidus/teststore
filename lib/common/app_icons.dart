@@ -13,4 +13,5 @@ class AppIcons {
   static String camera = 'lib/assets/icons/Camera.svg';
   static String fastMemory = 'lib/assets/icons/FastMemory.svg';
   static String memory = 'lib/assets/icons/Memory.svg';
+  static String qr = 'lib/assets/icons/QR.svg';
 }

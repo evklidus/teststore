@@ -25,5 +25,6 @@
     "myCart": "My Cart",
     "total": "Total",
     "delivery": "Delivery",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "search": "Search"
 }

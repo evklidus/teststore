@@ -29,7 +29,7 @@ class DetailModel extends DetailEntity {
           price: price,
         );
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       '_id': id,
       'images': images,
@@ -60,7 +60,7 @@ class DetailModel extends DetailEntity {
     };
   }
 
-  factory DetailModel.fromMap(Map<String, dynamic> map) {
+  factory DetailModel.fromJson(Map<String, dynamic> map) {
     return DetailModel(
       id: map['_id'],
       images: List<String>.from(map['images']),

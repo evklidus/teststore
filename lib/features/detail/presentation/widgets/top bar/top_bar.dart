@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teststore/common/app_colors.dart';
 import 'package:teststore/common/app_icons.dart';
-import 'package:teststore/core/helpers/nav_helper.dart';
+import 'package:teststore/core/helpers/navigation/nav_helper.dart';
 import 'top_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

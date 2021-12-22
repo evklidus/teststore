@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:teststore/core/helpers/network/rest_api_client.dart';
+
 import '../../../../core/error/exception.dart';
 import '../models/cart_model.dart';
 
@@ -13,7 +15,7 @@ abstract class CartRemoteDataSource {
 }
 
 class CartRemoteDataSourceImpl implements CartRemoteDataSource {
-  final http.Client client;
+  final RestClient client;
   
   CartRemoteDataSourceImpl({
     required this.client,
@@ -21,14 +23,9 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
 
   @override
   Future<CartModel> getCart() async {
-    final response = await http.get(Uri.parse('https://db2021ecom-edca.restdb.io/rest/mycart'), headers: {'x-apikey':'2aa8e910f6c4ade81a84c9333ffc7bf6a398e'});
-    if (response.statusCode == 200) {
-      final jsonCart = json.decode(response.body);
-      CartModel cart = (jsonCart as List).map((cart) => CartModel.fromMap(cart)).toList()[0];
-      cart.updateItemsCount();
-      return cart;
-    } else {
-      throw ServerException();
-    }
+    var listCarts = await client.getCart();
+    var cart = listCarts[0];
+    cart.updateItemsCount(); // improving data from api
+    return cart;
   }
 }
